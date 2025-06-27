@@ -15,14 +15,14 @@ def main():
     dt = 0 # Delta time
 
     while True:
+        dt = clock.tick(60) / 1000 # Gets the time since the last frame in seconds
         Fill(screen, (0, 0, 0))  # Fill the screen with black
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-
-        dt = clock.tick(60) / 1000 # Gets the time since the last frame in seconds
 
 def Fill(screen, color): # Fills the screen with the specified colour
     screen.fill(color)
